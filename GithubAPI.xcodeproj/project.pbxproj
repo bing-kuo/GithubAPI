@@ -15,6 +15,17 @@
 		FC609CDD2951FD9200F47B7C /* GithubAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC609CDC2951FD9200F47B7C /* GithubAPITests.swift */; };
 		FC609CE72951FD9200F47B7C /* GithubAPIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC609CE62951FD9200F47B7C /* GithubAPIUITests.swift */; };
 		FC609CE92951FD9200F47B7C /* GithubAPIUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC609CE82951FD9200F47B7C /* GithubAPIUITestsLaunchTests.swift */; };
+		FC609CFA2951FEF800F47B7C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC609CF92951FEF800F47B7C /* HomeViewModel.swift */; };
+		FC609CFF2951FF2300F47B7C /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC609CFE2951FF2300F47B7C /* SearchResultCell.swift */; };
+		FC609D03295200C200F47B7C /* GitHub.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC609D02295200C200F47B7C /* GitHub.swift */; };
+		FC609D062952020A00F47B7C /* Collection+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC609D052952020A00F47B7C /* Collection+Ext.swift */; };
+		FC609D0829520C8900F47B7C /* UIImageView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC609D0729520C8900F47B7C /* UIImageView+Ext.swift */; };
+		FC609D0A2954BD3100F47B7C /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC609D092954BD3100F47B7C /* NetworkingService.swift */; };
+		FC609D0C2954BEE100F47B7C /* Data+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC609D0B2954BEE100F47B7C /* Data+Ext.swift */; };
+		FC609D1429588BF900F47B7C /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC609D1329588BF900F47B7C /* String+Ext.swift */; };
+		FC609D1829595B0B00F47B7C /* TableStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC609D1729595B0B00F47B7C /* TableStateView.swift */; };
+		FC609D1B2959644100F47B7C /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC609D1A2959644100F47B7C /* ImageCache.swift */; };
+		FC609D212960072700F47B7C /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC609D202960072700F47B7C /* HomePage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +58,17 @@
 		FC609CE22951FD9200F47B7C /* GithubAPIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GithubAPIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC609CE62951FD9200F47B7C /* GithubAPIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubAPIUITests.swift; sourceTree = "<group>"; };
 		FC609CE82951FD9200F47B7C /* GithubAPIUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubAPIUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FC609CF92951FEF800F47B7C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		FC609CFE2951FF2300F47B7C /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
+		FC609D02295200C200F47B7C /* GitHub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHub.swift; sourceTree = "<group>"; };
+		FC609D052952020A00F47B7C /* Collection+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Ext.swift"; sourceTree = "<group>"; };
+		FC609D0729520C8900F47B7C /* UIImageView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Ext.swift"; sourceTree = "<group>"; };
+		FC609D092954BD3100F47B7C /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
+		FC609D0B2954BEE100F47B7C /* Data+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Ext.swift"; sourceTree = "<group>"; };
+		FC609D1329588BF900F47B7C /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		FC609D1729595B0B00F47B7C /* TableStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableStateView.swift; sourceTree = "<group>"; };
+		FC609D1A2959644100F47B7C /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		FC609D202960072700F47B7C /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +137,8 @@
 		FC609CE52951FD9200F47B7C /* GithubAPIUITests */ = {
 			isa = PBXGroup;
 			children = (
+				FCCD86C22965AC45006E0A06 /* Utility */,
+				FC609D1F2960071100F47B7C /* Pages */,
 				FC609CE62951FD9200F47B7C /* GithubAPIUITests.swift */,
 				FC609CE82951FD9200F47B7C /* GithubAPIUITestsLaunchTests.swift */,
 			);
@@ -124,7 +148,7 @@
 		FC609CF52951FDC100F47B7C /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				FC609CC92951FD9000F47B7C /* HomeViewController.swift */,
+				FC609CFB2951FF0700F47B7C /* Home */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -132,6 +156,9 @@
 		FC609CF62951FDC900F47B7C /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				FC609D1929595B0F00F47B7C /* Utility */,
+				FC609D04295201DF00F47B7C /* Extension */,
+				FC609D002952009D00F47B7C /* Networking */,
 				FC609CF82951FDF100F47B7C /* AppDelegate */,
 			);
 			path = Infrastructure;
@@ -154,6 +181,76 @@
 				FC609CC72951FD9000F47B7C /* SceneDelegate.swift */,
 			);
 			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		FC609CFB2951FF0700F47B7C /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				FC609CFC2951FF0E00F47B7C /* Cell */,
+				FC609CC92951FD9000F47B7C /* HomeViewController.swift */,
+				FC609CF92951FEF800F47B7C /* HomeViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		FC609CFC2951FF0E00F47B7C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				FC609CFE2951FF2300F47B7C /* SearchResultCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		FC609D002952009D00F47B7C /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				FC609D01295200A500F47B7C /* Model */,
+				FC609D092954BD3100F47B7C /* NetworkingService.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		FC609D01295200A500F47B7C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FC609D02295200C200F47B7C /* GitHub.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FC609D04295201DF00F47B7C /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				FC609D052952020A00F47B7C /* Collection+Ext.swift */,
+				FC609D0729520C8900F47B7C /* UIImageView+Ext.swift */,
+				FC609D0B2954BEE100F47B7C /* Data+Ext.swift */,
+				FC609D1329588BF900F47B7C /* String+Ext.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		FC609D1929595B0F00F47B7C /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				FC609D1729595B0B00F47B7C /* TableStateView.swift */,
+				FC609D1A2959644100F47B7C /* ImageCache.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		FC609D1F2960071100F47B7C /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				FC609D202960072700F47B7C /* HomePage.swift */,
+			);
+			path = Pages;
+			sourceTree = "<group>";
+		};
+		FCCD86C22965AC45006E0A06 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,9 +383,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC609D0829520C8900F47B7C /* UIImageView+Ext.swift in Sources */,
+				FC609D0C2954BEE100F47B7C /* Data+Ext.swift in Sources */,
+				FC609D03295200C200F47B7C /* GitHub.swift in Sources */,
 				FC609CCA2951FD9000F47B7C /* HomeViewController.swift in Sources */,
+				FC609D1829595B0B00F47B7C /* TableStateView.swift in Sources */,
+				FC609D0A2954BD3100F47B7C /* NetworkingService.swift in Sources */,
 				FC609CC62951FD9000F47B7C /* AppDelegate.swift in Sources */,
 				FC609CC82951FD9000F47B7C /* SceneDelegate.swift in Sources */,
+				FC609CFA2951FEF800F47B7C /* HomeViewModel.swift in Sources */,
+				FC609D062952020A00F47B7C /* Collection+Ext.swift in Sources */,
+				FC609CFF2951FF2300F47B7C /* SearchResultCell.swift in Sources */,
+				FC609D1B2959644100F47B7C /* ImageCache.swift in Sources */,
+				FC609D1429588BF900F47B7C /* String+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +412,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC609CE92951FD9200F47B7C /* GithubAPIUITestsLaunchTests.swift in Sources */,
+				FC609D212960072700F47B7C /* HomePage.swift in Sources */,
 				FC609CE72951FD9200F47B7C /* GithubAPIUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
