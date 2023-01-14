@@ -11,12 +11,7 @@ class HomeViewController: UIViewController {
     // MARK: - Properties
     private let viewModel: HomeViewModel
     private let imageCache = ImageCache()
-    
-    private lazy var refreshControl: UIRefreshControl = {
-        let control = UIRefreshControl()
-        control.addTarget(self, action: #selector(searchUser), for: .valueChanged)
-        return control
-    }()
+
     private lazy var indicatorView: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView()
         indicator.translatesAutoresizingMaskIntoConstraints = false
@@ -36,21 +31,11 @@ class HomeViewController: UIViewController {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.separatorStyle = .none
-        tableView.refreshControl = refreshControl
         tableView.delegate = self
         tableView.dataSource = self
         tableView.accessibilityIdentifier = "HomeTableView"
-        tableView.register(SearchResultCell.self, forCellReuseIdentifier: SearchResultCell.identifier)
+        tableView.register(UserTableViewCell.self, forCellReuseIdentifier: UserTableViewCell.identifier)
         return tableView
-    }()
-    private lazy var noResultLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "End"
-        label.textColor = .black
-        label.textAlignment = .center
-        label.isHidden = true
-        return label
     }()
 
     // MARK: - Constructors
@@ -70,6 +55,12 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.updateAllUserFollowingStatus()
+        tableView.reloadData()
+    }
 }
 
 // MARK: - Binding
@@ -88,8 +79,7 @@ private extension HomeViewController {
             switch (error as? NetworkingError) {
             case .noDataFound:
                 self.tableView.setState(.noDataFound)
-            case let .APIError(message):
-                print("🤖", message)
+            case .APIError:
                 self.tableView.setState(.serverError)
             case .unknown:
                 self.tableView.setState(.unknown) {
@@ -97,16 +87,6 @@ private extension HomeViewController {
                 }
             case .none:
                 break
-            }
-        }
-
-        viewModel.isLoadingClosure = { [weak self] isLoading in
-            guard let self = self else { return }
-
-            if isLoading {
-                self.refreshControl.beginRefreshing()
-            } else {
-                self.refreshControl.endRefreshing()
             }
         }
     }
@@ -122,7 +102,6 @@ private extension HomeViewController {
         view.addSubview(tableView)
         let footerView = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
         footerView.addSubview(indicatorView)
-        footerView.addSubview(noResultLabel)
 
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -130,16 +109,9 @@ private extension HomeViewController {
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             indicatorView.centerXAnchor.constraint(equalTo: footerView.centerXAnchor),
-            noResultLabel.centerXAnchor.constraint(equalTo: footerView.centerXAnchor),
-            noResultLabel.centerYAnchor.constraint(equalTo: footerView.centerYAnchor)
         ])
 
         tableView.tableFooterView = footerView
-    }
-
-    @objc func searchUser() {
-        viewModel.searchUser()
-        closeKeyboard()
     }
 
     @objc func closeKeyboard() {
@@ -155,24 +127,26 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard
-            let cell = tableView.dequeueReusableCell(withIdentifier: SearchResultCell.identifier, for: indexPath) as? SearchResultCell,
+            let cell = tableView.dequeueReusableCell(withIdentifier: UserTableViewCell.identifier, for: indexPath) as? UserTableViewCell,
             let data = viewModel.cellForRowAt(indexPath)
         else {
             return UITableViewCell()
         }
 
-        cell.nameLabel.text = data.username
-        if let url = URL(string: data.avatarURL) {
-            cell.accountImageView.setImage(url: url, cache: imageCache)
-        }
+        cell.config(model: data, cache: imageCache)
 
         return cell
     }
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row == viewModel.numberOfRowsInSection() - 1 {
+        if indexPath.row == viewModel.users.count - 1 {
             viewModel.nextPage()
         }
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let data = viewModel.cellForRowAt(indexPath) else { return }
+        print(data)
     }
 }
 
@@ -183,7 +157,8 @@ extension HomeViewController: UISearchBarDelegate {
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchUser()
+        viewModel.searchUser()
+        closeKeyboard()
     }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {

@@ -6,17 +6,18 @@
 //
 
 import Foundation
+import UIKit
 
 class HomeViewModel {
     // MARK: - Closures
-    var userUpdatedClosure: (([GitHub.User]) -> Void)?
+    var userUpdatedClosure: (([UserCellModel]) -> Void)?
     var errorOccurredClosure: ((Error) -> Void)?
-    var isLoadingClosure: ((Bool) -> Void)?
 
     // MARK: - Properties
     var keyword: String?
-    private(set) var page: Int = 0
-    private(set) var users: [GitHub.User] = [] {
+    
+    private(set) var page: Int = 1
+    private(set) var users: [UserCellModel] = [] {
         didSet {
             userUpdatedClosure?(users)
         }
@@ -34,21 +35,36 @@ extension HomeViewModel {
         guard let keyword = keyword, !keyword.isEmpty else { return }
         page += 1
         fetchUserData(keyword: keyword, page: page) { [weak self] items in
-            self?.users.append(contentsOf: items)
+            var cellModel = items.map { UserCellModel(user: $0, isFollowing: false) }
+            self?.updateFollowingStatue(&cellModel)
+            self?.users.append(contentsOf: cellModel)
         }
     }
 
     func searchUser() {
         guard let keyword = keyword, !keyword.isEmpty else { return }
-        page = 0
-        fetchUserData(keyword: keyword, page: 0) { [weak self] items in
-            self?.users = items
+        page = 1
+        fetchUserData(keyword: keyword, page: 1) { [weak self] items in
+            var cellModel = items.map { UserCellModel(user: $0, isFollowing: false) }
+            self?.updateFollowingStatue(&cellModel)
+            self?.users = cellModel
+        }
+    }
+
+    func updateAllUserFollowingStatus() {
+        updateFollowingStatue(&users)
+    }
+
+    private func updateFollowingStatue(_ models: inout [UserCellModel]) {
+        let objects = UserDefaultHelper.getObject(key: .followingUser, type: [UserCellModel].self) ?? []
+        let ids = objects.map(\.user.id)
+
+        for (index, model) in models.enumerated() {
+            models[index].isFollowing = ids.contains(model.user.id) ? true : false
         }
     }
 
     private func fetchUserData(keyword: String, page: Int, completion: @escaping ([GitHub.User]) -> ()) {
-        isLoadingClosure?(true)
-
         NetworkingService.shared.fetchUsers(keyword: keyword, page: page) { [weak self] result in
             guard let self = self else { return }
 
@@ -75,7 +91,6 @@ extension HomeViewModel {
                     self.users = []
                     self.errorOccurredClosure?(error)
                 }
-                self.isLoadingClosure?(false)
             }
         }
     }
@@ -83,7 +98,7 @@ extension HomeViewModel {
 
 // MARK: - TableView Actions
 extension HomeViewModel {
-    func cellForRowAt(_ indexPath: IndexPath) -> GitHub.User? {
+    func cellForRowAt(_ indexPath: IndexPath) -> UserCellModel? {
         users[safe: indexPath.row]
     }
 

@@ -37,13 +37,11 @@ class TableStateView: UIView {
     private lazy var actionButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        var config = UIButton.Configuration.plain()
-        config.baseForegroundColor = .gray
-        config.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20)
-        config.background.strokeColor = .gray
-        config.background.strokeWidth = 1.0
-        config.cornerStyle = .small
-        button.configuration = config
+        button.layer.cornerRadius = 5
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.gray.cgColor
+        button.tintColor = .gray
+        button.contentEdgeInsets = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         return button
     }()
