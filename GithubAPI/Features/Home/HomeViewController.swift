@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class HomeViewController: UIViewController {
     // MARK: - Properties
@@ -145,8 +146,13 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let data = viewModel.cellForRowAt(indexPath) else { return }
-        print(data)
+        guard
+            let data = viewModel.cellForRowAt(indexPath),
+            let url = URL(string: data.user.htmlURL)
+        else { return }
+
+        let safariViewController = SFSafariViewController(url: url)
+        present(safariViewController, animated: true)
     }
 }
 

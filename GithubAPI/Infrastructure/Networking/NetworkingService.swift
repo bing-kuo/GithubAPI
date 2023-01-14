@@ -20,11 +20,7 @@ class NetworkingService {
                  ],
                  completionHandler: completionHandler)
     }
-
-    func fetchRepos(urlString: String, completionHandler: (@escaping (Result<[GitHub.Repo], Error>) -> Void)) {
-        dataTask(urlString, completionHandler: completionHandler)
-    }
-
+    
     private func dataTask<T: Decodable>(_ path: String, query: [URLQueryItem]? = nil, completionHandler: (@escaping (Result<T, Error>) -> Void)) {
         var components = URLComponents(string: "https://api.github.com/" + path)!
         components.queryItems = query

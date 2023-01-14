@@ -17,34 +17,13 @@ struct GitHub {
         let id: Int
         let username: String
         let avatarURL: String
+        let htmlURL: String
 
         enum CodingKeys: String, CodingKey {
             case username = "login"
             case id
             case avatarURL = "avatar_url"
-        }
-    }
-
-    struct Repo: Codable {
-        let archived: Bool
-        let description: String?
-        let htmlURL: String
-        let name: String
-        let owner: Owner
-
-        enum CodingKeys: String, CodingKey {
             case htmlURL = "html_url"
-            case archived, description, name, owner
-        }
-    }
-
-    struct Owner: Codable {
-        let avatarURL: String
-        let reposURL: String
-
-        enum CodingKeys: String, CodingKey {
-            case avatarURL = "avatar_url"
-            case reposURL = "repos_url"
         }
     }
 }
