@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    // MARK: UISceneSession Lifecycle
+    // MARK: - UISceneSession Lifecycle
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
@@ -41,7 +41,7 @@ extension AppDelegate {
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.titleTextAttributes = [
-            NSAttributedString.Key.foregroundColor: UIColor.black
+            NSAttributedString.Key.foregroundColor: UIColor.textColor as Any
         ]
 
         UINavigationBar.appearance().standardAppearance = appearance

@@ -41,6 +41,7 @@ class TableStateView: UIView {
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor.gray.cgColor
         button.tintColor = .gray
+        button.setTitleColor(.gray, for: .normal)
         button.contentEdgeInsets = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         return button

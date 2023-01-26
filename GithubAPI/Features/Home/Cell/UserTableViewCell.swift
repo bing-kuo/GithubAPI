@@ -27,10 +27,8 @@ class UserTableViewCell: UITableViewCell {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.cornerRadius = 8
-        let unlikeImage = UIImage(systemName: "heart")?.withRenderingMode(.alwaysTemplate)
-        let likeImage = UIImage(systemName: "heart.fill")?.withRenderingMode(.alwaysTemplate)
-        button.setImage(unlikeImage, for: .normal)
-        button.setImage(likeImage, for: .selected)
+        let heartImage = UIImage(systemName: "heart.fill")?.withRenderingMode(.alwaysTemplate)
+        button.setImage(heartImage, for: .normal)
         button.addTarget(self, action: #selector(followButtonTapped(_:)), for: .touchUpInside)
         return button
     }()
@@ -99,7 +97,7 @@ private extension UserTableViewCell {
 
     func setFollowButton(_ isFollowing: Bool) {
         followButton.isSelected = isFollowing
-        followButton.tintColor = isFollowing ? .secondary : .gray
-        followButton.backgroundColor = isFollowing ? .secondary.lighter() : .gray.lighter()
+        followButton.tintColor = isFollowing ? .customPink : .gray
+        followButton.backgroundColor = isFollowing ? .customLightPink : .customLightGrayColor
     }
 }

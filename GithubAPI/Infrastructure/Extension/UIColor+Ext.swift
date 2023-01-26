@@ -27,8 +27,11 @@ extension UIColor {
 }
 
 extension UIColor {
-    static let primary = UIColor(rgb: 0x577C8A)
-    static let secondary = UIColor(rgb: 0xD05A6E)
+    static let primary = UIColor(named: "PrimaryColor")
+    static let textColor = UIColor(named: "TextColor")
+    static let customPink = UIColor(named: "PinkColor")
+    static let customLightPink = UIColor(named: "LightPinkColor")
+    static let customLightGrayColor = UIColor(named: "LightGrayColor")
 
     func lighter(_ offset: CGFloat = 0.5) -> UIColor {
         var red: CGFloat = 0
