@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		FC057581296E38F500E532BC /* UserDefaultHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC057580296E38F500E532BC /* UserDefaultHelper.swift */; };
+		FC5A9B38298198E4006F2C86 /* HomePageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5A9B37298198E4006F2C86 /* HomePageTest.swift */; };
+		FC5A9B3C2983868E006F2C86 /* TestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5A9B3B2983868E006F2C86 /* TestHelper.swift */; };
 		FC609CC62951FD9000F47B7C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC609CC52951FD9000F47B7C /* AppDelegate.swift */; };
 		FC609CC82951FD9000F47B7C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC609CC72951FD9000F47B7C /* SceneDelegate.swift */; };
 		FC609CCA2951FD9000F47B7C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC609CC92951FD9000F47B7C /* HomeViewController.swift */; };
@@ -53,6 +55,8 @@
 
 /* Begin PBXFileReference section */
 		FC057580296E38F500E532BC /* UserDefaultHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultHelper.swift; sourceTree = "<group>"; };
+		FC5A9B37298198E4006F2C86 /* HomePageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageTest.swift; sourceTree = "<group>"; };
+		FC5A9B3B2983868E006F2C86 /* TestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelper.swift; sourceTree = "<group>"; };
 		FC609CC22951FD9000F47B7C /* GithubAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC609CC52951FD9000F47B7C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC609CC72951FD9000F47B7C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -153,6 +157,7 @@
 				FC609D1F2960071100F47B7C /* Pages */,
 				FC609CE62951FD9200F47B7C /* GithubAPIUITests.swift */,
 				FC609CE82951FD9200F47B7C /* GithubAPIUITestsLaunchTests.swift */,
+				FC5A9B37298198E4006F2C86 /* HomePageTest.swift */,
 			);
 			path = GithubAPIUITests;
 			sourceTree = "<group>";
@@ -266,6 +271,7 @@
 		FCCD86C22965AC45006E0A06 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				FC5A9B3B2983868E006F2C86 /* TestHelper.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -444,8 +450,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC609CE92951FD9200F47B7C /* GithubAPIUITestsLaunchTests.swift in Sources */,
+				FC5A9B3C2983868E006F2C86 /* TestHelper.swift in Sources */,
 				FC609D212960072700F47B7C /* HomePage.swift in Sources */,
 				FC609CE72951FD9200F47B7C /* GithubAPIUITests.swift in Sources */,
+				FC5A9B38298198E4006F2C86 /* HomePageTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
